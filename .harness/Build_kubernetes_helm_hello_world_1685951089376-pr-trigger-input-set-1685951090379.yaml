@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_kubernetes_helm_hello_world_1685951089376-pr-trigger-input-set
+  identifier: Build_kubernetes_helm_hello_world_1685951089376prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Busybox
+  pipeline:
+    identifier: Build_kubernetes_helm_hello_world_1685951089376
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
