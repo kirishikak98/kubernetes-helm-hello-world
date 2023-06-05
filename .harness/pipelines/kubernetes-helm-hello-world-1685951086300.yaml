@@ -1,0 +1,37 @@
+pipeline:
+  identifier: Build_kubernetes_helm_hello_world_1685951089376
+  name: Build kubernetes-helm-hello-world
+  orgIdentifier: default
+  projectIdentifier: Busybox
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: account.Github
+        repoName: kirishikak98/kubernetes-helm-hello-world
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: dockerbuild
+                  name: docker_build
+                  spec:
+                    image: plugins/docker
+                    settings:
+                      dry_run: "true"
+                      repo: hello/world
+                      tags: latest
+                  timeout: ""
+                  type: Plugin
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
